@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class CostoCredito {
     public static void main(String[] args) {
@@ -17,13 +18,14 @@ public class CostoCredito {
         double numerador = tasaMensual * Math.pow(1 + tasaMensual, periodos);
         double denominador = Math.pow(1 + tasaMensual, periodos) - 1;
         double pagoMensual = monto * numerador / denominador;
+        DecimalFormat df = new DecimalFormat("#.00");
 
         // Cálculo del costo total del crédito
         double costoTotal = pagoMensual * periodos;
 
         // Imprimir resultados
-        System.out.println("El pago mensual necesario es de $" + pagoMensual);
-        System.out.println("El costo total del crédito es de $" + costoTotal);
+        System.out.println("El pago mensual necesario es de $" + df.format(pagoMensual));
+        System.out.println("El costo total del crédito es de $" + df.format(costoTotal));
 
         scanner.close();
     }
